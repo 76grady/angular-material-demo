@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files
+.mat-button, .mat-raised-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button, .mat-fab, .mat-mini-fab {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: 500;
+} */
+
+body {
+    font-family: "source-sans-pro",sans-serif;
+    color: #444;
+    margin: 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}

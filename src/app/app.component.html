@@ -1,20 +1,46 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Add A Priority</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">home</mat-icon>
+    <mat-icon class="example-icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form class="example-container" [formGroup]='priorityForm'>
+  
+  <mat-form-field class="form-field-wrapper">
+    <input matInput placeholder="Priority Title" formControlName="priorityTitle">
+    <mat-hint *ngIf="priorityTitle.dirty">Give the priority a title. {{ titleMaxLength - priorityTitle.value.length }} characters left.</mat-hint>
+    <mat-error *ngIf="priorityTitle.errors?.required">A prioirty title is required</mat-error>
+    <mat-error *ngIf="priorityTitle.errors?.maxlength">You've exceeded the length.</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-field-wrapper">
+    <textarea ([ngModel])='textValue' style="height: 100px;" id='priorityDescription' matInput placeholder="Priority Description" formControlName="priorityDescription"></textarea>
+    <mat-hint *ngIf="priorityDescription.dirty">Type a description of the prioirty. {{ descriptionMaxLength - priorityDescription.value.length }} characters left.</mat-hint>
+    <mat-error *ngIf="priorityDescription.errors?.required">A prioirty description is required</mat-error>
+    <mat-error *ngIf="priorityDescription.errors?.forbiddenChar">Your description cannot contain the letter '{{ forbiddenChar }}'.</mat-error>
+    <mat-error *ngIf="priorityDescription.errors?.maxlength">
+        You've exceeded the length. Remove {{ priorityDescription.value.length - descriptionMaxLength }} characters.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-field-wrapper">
+    <mat-select placeholder="Initiative" formControlName="priorityInit" >
+      <mat-option *ngFor='let item of selectItems' class='select-template' [value]='item.itemTitle' >
+        <mat-icon [ngStyle]='{ color: item.itemColor }'>{{ item.matIconName }}</mat-icon>
+            {{ item.itemTitle }}
+            <span>{{ item.itemDescription}}</span>
+      </mat-option>
+    </mat-select>
+    <mat-hint>Select an initiative from the dropdown.</mat-hint>
+    <mat-error *ngIf="priorityForm.invalid">You must select an initiative.</mat-error>
+  </mat-form-field>
+
+  <div class='form-button-row'>
+    <button mat-raised-button (click)="clickCancelButton()">CANCEL</button> 
+    <button mat-raised-button color="primary" [disabled]="(priorityForm.dirty || priorityForm.touched) && priorityForm.invalid" (click)='saveButton()'>SAVE</button>
+  </div>
+</form>

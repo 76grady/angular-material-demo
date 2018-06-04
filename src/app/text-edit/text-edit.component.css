@@ -1,0 +1,10 @@
+mat-card {
+    margin: 1.5em;
+    border-radius: .2em;
+}
+
+.form-field-wrapper {
+    margin: 0 0 .5em 0;
+    width: 100%;
+}
+

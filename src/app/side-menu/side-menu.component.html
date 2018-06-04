@@ -1,0 +1,13 @@
+<div class='container'>
+  <div class='content'>
+      <h2>Blue Company Mega App</h2>
+      <ul>
+        <li *ngFor='let item of mainMenuItems'>
+          <a>
+            <mat-icon>{{ item.iconName }}</mat-icon>
+            <div>{{ item.itemText }}</div>
+          </a>
+        </li>  
+      </ul>
+  </div>
+</div>

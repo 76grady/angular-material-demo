@@ -1,0 +1,47 @@
+.container {
+  background-color: #efefef;
+  height: 100%;  
+}
+
+.content {
+  padding: 1.7em 0 0 0;
+}
+
+h2 {
+    margin: 0 1.5em 0 1.2em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul > li {
+    margin: 0;
+    padding: .5em 2em .5em 2em;
+    transition: background-color .5s, color .5s;
+}
+
+a {
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #dfdfdf;
+    color: red !important;
+    transition: background-color .5s, color .5s;
+}
+
+a > div {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: .6em;
+    color: #777;
+    font-weight: 600;
+}
+
+mat-icon {
+    color: #444;
+    font-size: 1.25em;
+    vertical-align: middle;
+}

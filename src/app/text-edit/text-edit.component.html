@@ -1,0 +1,19 @@
+<mat-card [ngClass]="{ 'mat-elevation-z10' : active, 'mat-elevation-z24' : textArea.touched && textEditForm.invalid }">
+  <h3>{{title}}</h3>
+  <form [formGroup]="textEditForm">
+      <mat-form-field class="form-field-wrapper">
+          <textarea matInput ([ngModel])='textValue' 
+            style="max-width: none;" 
+            id='textArea'  
+            placeholder="Type {{ title }}" 
+            formControlName="textArea"
+            (focus)="onCardFocus()"
+            (blur)="onCardBlur()">
+          </textarea>
+          <mat-hint>Type a description of the {{title}}s. {{ maxCharacters - textArea.value.length }} characters left.</mat-hint>
+          <mat-error *ngIf="textArea.errors?.required">A description of the {{ title }} is required</mat-error>
+          <mat-error *ngIf="textArea.errors?.maxlength">You've exceeded the length.  Remove {{ textArea.value.length - maxCharacters }} characters.</mat-error>
+        </mat-form-field>
+  </form>
+</mat-card>  
+

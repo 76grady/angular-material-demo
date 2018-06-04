@@ -1,46 +1,30 @@
+<header>
+  <mat-icon id="hamburger" (click)="menuClick(sidenav)">menu</mat-icon>
+  <span>The Blue Company</span>
+</header>
 
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Add A Priority</span>
-    <span class="example-spacer"></span>
-    <mat-icon class="example-icon">home</mat-icon>
-    <mat-icon class="example-icon">delete</mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
+<mat-sidenav-container class="example-container" [hasBackdrop]="true" >
+  
+  <mat-sidenav-content>
+    
+    <div class="content-one">
+      <h1>Envisioning</h1>
+      <p>This is where you will envision your plan.  A description of your Mission, Values, and Vision are required.</p>
+    </div>
+    
+    <app-text-edit [title]="'Mission'" [maxCharacters]="200"></app-text-edit>
+    <app-text-edit [title]="'Values'" [maxCharacters]="150"></app-text-edit>
+    <app-text-edit [title]="'Vision'" [maxCharacters]="100"></app-text-edit>
 
-<form class="example-container" [formGroup]='priorityForm'>
+     <app-priorities-grid></app-priorities-grid>
   
-  <mat-form-field class="form-field-wrapper">
-    <input matInput placeholder="Priority Title" formControlName="priorityTitle">
-    <mat-hint *ngIf="priorityTitle.dirty">Give the priority a title. {{ titleMaxLength - priorityTitle.value.length }} characters left.</mat-hint>
-    <mat-error *ngIf="priorityTitle.errors?.required">A prioirty title is required</mat-error>
-    <mat-error *ngIf="priorityTitle.errors?.maxlength">You've exceeded the length.</mat-error>
-  </mat-form-field>
-  
-  <mat-form-field class="form-field-wrapper">
-    <textarea ([ngModel])='textValue' style="height: 100px;" id='priorityDescription' matInput placeholder="Priority Description" formControlName="priorityDescription"></textarea>
-    <mat-hint *ngIf="priorityDescription.dirty">Type a description of the prioirty. {{ descriptionMaxLength - priorityDescription.value.length }} characters left.</mat-hint>
-    <mat-error *ngIf="priorityDescription.errors?.required">A prioirty description is required</mat-error>
-    <mat-error *ngIf="priorityDescription.errors?.forbiddenChar">Your description cannot contain the letter '{{ forbiddenChar }}'.</mat-error>
-    <mat-error *ngIf="priorityDescription.errors?.maxlength">
-        You've exceeded the length. Remove {{ priorityDescription.value.length - descriptionMaxLength }} characters.
-    </mat-error>
-  </mat-form-field>
-  
-  <mat-form-field class="form-field-wrapper">
-    <mat-select placeholder="Initiative" formControlName="priorityInit" >
-      <mat-option *ngFor='let item of selectItems' class='select-template' [value]='item.itemTitle' >
-        <mat-icon [ngStyle]='{ color: item.itemColor }'>{{ item.matIconName }}</mat-icon>
-            {{ item.itemTitle }}
-            <span>{{ item.itemDescription}}</span>
-      </mat-option>
-    </mat-select>
-    <mat-hint>Select an initiative from the dropdown.</mat-hint>
-    <mat-error *ngIf="priorityForm.invalid">You must select an initiative.</mat-error>
-  </mat-form-field>
+  </mat-sidenav-content>
 
-  <div class='form-button-row'>
-    <button mat-raised-button (click)="clickCancelButton()">CANCEL</button> 
-    <button mat-raised-button color="primary" [disabled]="(priorityForm.dirty || priorityForm.touched) && priorityForm.invalid" (click)='saveButton()'>SAVE</button>
-  </div>
-</form>
+  <mat-sidenav #sidenav mode="push" 
+    [(opened)]="sideNavOpened"
+    (opened)="sideNavOpenEvent()"
+    (closed)="sideNavClosedEvent()">
+        <app-side-menu></app-side-menu>
+  </mat-sidenav>
+
+</mat-sidenav-container>

@@ -2,8 +2,14 @@ form {
     border: 1px solid #cfcfcf;
     border-radius: 0 0 3px 3px;
     border-top: none;
-    padding: 49px 40px 45px 40px;
+    padding: 3em 2.75em 2.8em 2.75em;
 }
+
+@media screen and (max-width: 992px) {
+    form {
+        padding: 2em 1em 2em 1em;
+    }
+  }
 
 .example-container {
     display: flex;

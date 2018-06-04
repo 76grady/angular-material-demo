@@ -6,7 +6,7 @@
 } */
 
 body {
-    font-family: "source-sans-pro";
+    font-family: "cronos-pro";
     color: #444;
     margin: 0;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -18,3 +18,9 @@ body {
     padding: 0 !important;
 }
 
+
+@media screen and (max-width: 500px) {
+    .cdk-overlay-pane {
+        max-width: 90vw !important;
+    }
+  }

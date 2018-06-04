@@ -29,9 +29,10 @@ export class PrioritiesGridComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.log(result);
-      this.tableItems.push(new TableItem(result.priorityTitle, result.priorityDescription, result.priorityInit));
-      this.table.renderRows();
+      if(result !== undefined) {
+        this.tableItems.push(new TableItem(result.priorityTitle, result.priorityDescription, result.priorityInit));
+        this.table.renderRows();
+      }
     });
 
   }

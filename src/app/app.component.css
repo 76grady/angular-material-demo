@@ -1,4 +1,4 @@
-header {
+mat-toolbar {
     width: 100%; 
     padding: 1em; 
     color: #fff; 
@@ -6,16 +6,19 @@ header {
     text-align: center;
 }
 
-header > span {
+mat-toolbar > span {
     font-size: 1.5em;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #hamburger {
-    font-size: 3em;
+    font-size: 2.5em;
     float: left;
     cursor: pointer;
     position: relative;
-    bottom: .15em;
+    bottom: .25em;
 }
 
 .content-one {

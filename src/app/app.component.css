@@ -32,3 +32,7 @@ mat-toolbar > span {
     left: 0;
     right: 0;
 }
+
+.step-drawer {
+    height: 100%;
+}

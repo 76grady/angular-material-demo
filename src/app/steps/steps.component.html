@@ -1,0 +1,15 @@
+<div class="container">
+  
+    <div class='step-block' *ngFor='let step of steps'>
+      <div>{{ step.title }}</div>
+
+      <ul class='substep-list'>
+        <li *ngFor='let subStep of step.subSteps'>
+          <mat-icon color="primary">{{ subStep.iconName }}</mat-icon>
+          <div>{{ subStep.title }}</div>
+        </li>
+      </ul>
+
+    </div>
+    
+</div>

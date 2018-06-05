@@ -61,6 +61,43 @@ export class SampleData {
         
         return items;
     }
+
+    static getSteps(): PlanStep[] {
+        let steps: PlanStep[] = [];
+        steps.push(new PlanStep(
+            'Envisioning',
+            [
+                new SubStep("Plan Work", "games")
+            ]
+        ));
+        steps.push(new PlanStep(
+            'Planning',
+            [
+                new SubStep("Priorities", "games"),
+                new SubStep("Objectives", "hearing"),
+                new SubStep("Key Measures", "settings_power"),
+                new SubStep("Initiatives", "airplay")
+            ]
+        ));
+        steps.push(new PlanStep(
+            'Visioneering',
+            [
+                new SubStep("Priorities", "speaker_notes"),
+                new SubStep("Objectives", "pan_tool"),
+                new SubStep("Key Measures", "fingerprint"),
+                new SubStep("Initiatives", "album")
+            ]
+        ));
+        steps.push(new PlanStep(
+            'Envisioning',
+            [
+                new SubStep("Plan Work", "games")
+            ]
+        ));
+
+
+        return steps;
+    }
 }
 
 export class MainMenuItem {
@@ -109,6 +146,24 @@ export class SelectItemTemplate {
             this.itemTitle = itemTitle;
             this.itemDescription = itemDescription;
             this.matIconName = matIconName;
+    }
+}
+
+export class SubStep {
+    title: string;
+    iconName: string;
+    constructor(title: string, iconName: string) {
+        this.title = title;
+        this.iconName = iconName;
+    }
+}
+
+export class PlanStep {
+    title: string;
+    subSteps: SubStep[];
+    constructor(title: string, subSteps: SubStep[]){
+        this.title = title;
+        this.subSteps = subSteps;
     }
 }
 

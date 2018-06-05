@@ -20,6 +20,7 @@ import { AddPrioirtyComponent } from './add-prioirty/add-prioirty.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TextEditComponent } from './text-edit/text-edit.component';
 import { PrioritiesGridComponent } from './priorities-grid/priorities-grid.component';
+import { StepsComponent } from './steps/steps.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PrioritiesGridComponent } from './priorities-grid/priorities-grid.compo
     AddPrioirtyComponent,
     SideMenuComponent,
     TextEditComponent,
-    PrioritiesGridComponent
+    PrioritiesGridComponent,
+    StepsComponent
   ],
   imports: [
     BrowserModule,

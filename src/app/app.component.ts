@@ -10,6 +10,7 @@ import { MatSidenav } from '@angular/material'
 export class AppComponent {
 
   sideNavOpened: boolean;
+  formSideNavOpened: boolean;
   envisioning: string = "Envisioning";
 
   menuClick(sideNav: MatSidenav): void {

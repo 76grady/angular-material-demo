@@ -7,16 +7,28 @@
   
   <mat-sidenav-content>
     
-    <div class="content-one">
-      <h1>Envisioning</h1>
-      <p>This is where you will envision your plan.  A description of your Mission, Values, and Vision are required.</p>
-    </div>
+    <mat-drawer-container class="step-drawer">
+      
+      <mat-drawer mode="side" opened="true">
+        <app-steps></app-steps>
+      </mat-drawer>
+      
+      <mat-drawer-content>
+        <div class="content-one">
+          <h1>Envisioning</h1>
+          <p>This is where you will envision your plan.  A description of your Mission, Values, and Vision are required.</p>
+        </div>
+     
     
-    <app-text-edit [title]="'Mission'" [maxCharacters]="200"></app-text-edit>
-    <app-text-edit [title]="'Values'" [maxCharacters]="150"></app-text-edit>
-    <app-text-edit [title]="'Vision'" [maxCharacters]="100"></app-text-edit>
+        <app-text-edit [title]="'Mission'" [maxCharacters]="200"></app-text-edit>
+        <app-text-edit [title]="'Values'" [maxCharacters]="150"></app-text-edit>
+        <app-text-edit [title]="'Vision'" [maxCharacters]="100"></app-text-edit>
 
-     <app-priorities-grid></app-priorities-grid>
+        <app-priorities-grid></app-priorities-grid>
+
+      </mat-drawer-content>
+    
+  </mat-drawer-container>
   
   </mat-sidenav-content>
 
@@ -26,5 +38,11 @@
     (closed)="sideNavClosedEvent()">
         <app-side-menu></app-side-menu>
   </mat-sidenav>
+
+  <mat-sidenav #formSidenav position="end" mode="push"
+    [(opened)]="formSideNavOpened">
+     
+
+  </mat-sidenav> 
 
 </mat-sidenav-container>

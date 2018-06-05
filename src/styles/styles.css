@@ -20,7 +20,7 @@ body {
 
 
 @media screen and (max-width: 500px) {
-    .cdk-overlay-pane {
-        max-width: 90vw !important;
-    }
+  .cdk-overlay-pane {
+    max-width: 90vw !important;
   }
+}

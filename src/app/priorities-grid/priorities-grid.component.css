@@ -16,11 +16,6 @@ h2 {
     flex-grow: 1;
 }
 
-.container > button {
-
-   
-}
-
 .container > mat-slide-toggle {
     position: relative;
     top: .35em;
@@ -38,7 +33,7 @@ table {
     height: 2.5em;
     margin-right: 1em;
     border: none;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .edit-header {
@@ -52,4 +47,17 @@ table {
 
 .color-cell {
     width: .5em;
+}
+
+td.mat-cell {
+    padding-right: .25em;
+}
+
+@media screen and (max-width: 500px) {
+    .mat-cell {
+      font-size: .6em;
+    }
+    td.mat-cell {
+      padding: .5em;
+    }
 }

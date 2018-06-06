@@ -45,3 +45,9 @@ mat-toolbar > span {
 .copyright-info {
   margin: 1em 0 2em 1.75em;
 }
+
+@media screen and (max-width: 500px) {
+  .copyright-info {
+      font-size: .75em;
+  }
+}

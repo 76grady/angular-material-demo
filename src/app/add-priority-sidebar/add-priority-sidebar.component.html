@@ -1,0 +1,45 @@
+<div class='container'>
+  <mat-toolbar>
+      <mat-toolbar-row>
+        <span>Add A Priority</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    
+    <form class="example-container" [formGroup]='priorityForm'>
+      
+      <mat-form-field class="form-field-wrapper">
+        <input matInput placeholder="Priority Title" formControlName="priorityTitle">
+        <mat-hint *ngIf="priorityTitle.dirty">Give the priority a title. {{ titleMaxLength - priorityTitle.value.length }} characters left.</mat-hint>
+        <mat-error *ngIf="priorityTitle.errors?.required">A prioirty title is required</mat-error>
+        <mat-error *ngIf="priorityTitle.errors?.maxlength">You've exceeded the length.</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="form-field-wrapper">
+        <textarea style="height: 100px;" id='priorityDescription' matInput placeholder="Priority Description" formControlName="priorityDescription"></textarea>
+        <mat-hint *ngIf="priorityDescription.dirty">Type a description of the prioirty. {{ descriptionMaxLength - priorityDescription.value.length }} characters left.</mat-hint>
+        <mat-error *ngIf="priorityDescription.errors?.required">A prioirty description is required</mat-error>
+        <mat-error *ngIf="priorityDescription.errors?.forbiddenChar">Your description cannot contain the letter '{{ forbiddenChar }}'.</mat-error>
+        <mat-error *ngIf="priorityDescription.errors?.maxlength">
+            You've exceeded the length. Remove {{ priorityDescription.value.length - descriptionMaxLength }} characters.
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="form-field-wrapper">
+        <mat-select placeholder="Color" formControlName="priorityInit" >
+          <mat-option *ngFor='let item of selectItems' class='select-template' [value]='item.colorName' [style.background-color]="item.colorName" >
+            <div class="select-item" >
+              <span class="select-title"> {{ item.colorName }}</span>   
+            </div>    
+          </mat-option>
+        </mat-select>
+        <mat-hint>Select a color from the dropdown.</mat-hint>
+        <mat-error *ngIf="priorityForm.invalid">You must select a color.</mat-error>
+      </mat-form-field>
+    
+      <div class='form-button-row'>
+        <button mat-raised-button (click)="clickCancelButton()">CANCEL</button> 
+        <button mat-raised-button color="primary" (click)="savePriority()" [disabled]="(priorityForm.dirty || priorityForm.touched) && priorityForm.invalid">SAVE</button>
+      </div>
+    </form>
+</div>
+  

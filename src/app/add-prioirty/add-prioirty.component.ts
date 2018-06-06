@@ -18,7 +18,7 @@ export class AddPrioirtyComponent implements OnInit {
   priorityForm: FormGroup;
   priority: TableItem;
 
-  selectedValue: ColorSelect = new ColorSelect('','');
+  // selectedValue: ColorSelect = new ColorSelect('','');
 
   constructor(private fb: FormBuilder,
               public dialogRef: MatDialogRef<AddPrioirtyComponent>,

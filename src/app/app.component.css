@@ -28,6 +28,7 @@ mat-toolbar > span {
 .example-container {
     position: absolute;
     top: 4em;
+    /* top: 0; */
     bottom: 0;
     left: 0;
     right: 0;
@@ -35,4 +36,12 @@ mat-toolbar > span {
 
 .step-drawer {
     height: 100%;
+}
+
+#footerImage {
+    height: 2.25em;
+}
+
+.copyright-info {
+  margin: 1em 0 2em 1.75em;
 }

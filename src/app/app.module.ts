@@ -15,12 +15,15 @@ import { MatButtonModule,
   MatSidenavModule, 
   MatCardModule,
   MatTableModule,
-  MatDialogModule } from '@angular/material';
+  MatDialogModule,
+  MatSlideToggleModule,
+  MatSnackBarModule } from '@angular/material';
 import { AddPrioirtyComponent } from './add-prioirty/add-prioirty.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TextEditComponent } from './text-edit/text-edit.component';
 import { PrioritiesGridComponent } from './priorities-grid/priorities-grid.component';
 import { StepsComponent } from './steps/steps.component';
+import { AddPrioritySidebarComponent } from './add-priority-sidebar/add-priority-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { StepsComponent } from './steps/steps.component';
     SideMenuComponent,
     TextEditComponent,
     PrioritiesGridComponent,
-    StepsComponent
+    StepsComponent,
+    AddPrioritySidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +49,11 @@ import { StepsComponent } from './steps/steps.component';
     MatSidenavModule,
     MatCardModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatSnackBarModule
   ],
   entryComponents: [AddPrioirtyComponent],
-
   providers: [],
   bootstrap: [AppComponent]
 })

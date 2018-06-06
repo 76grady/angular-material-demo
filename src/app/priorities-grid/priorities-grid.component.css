@@ -1,5 +1,7 @@
 .container {
-    margin: 2em 1.5em 0 1.75em;
+    margin: 2em 1.5em 2em 1.75em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .table-container {
@@ -10,10 +12,19 @@ h2 {
     margin: 0;    
 }
 
+.flex-seperator{
+    flex-grow: 1;
+}
+
 .container > button {
-    float: right;
+
+   
+}
+
+.container > mat-slide-toggle {
     position: relative;
-    bottom: 2.4em;
+    top: .35em;
+    right: 1.25em;
 }
 
 table {

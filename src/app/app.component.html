@@ -1,3 +1,5 @@
+
+
 <mat-toolbar color="primary">
   <mat-icon id="hamburger" (click)="menuClick(sidenav)">menu</mat-icon>
   <span>The Blue Company</span>
@@ -5,26 +7,35 @@
 
 <mat-sidenav-container class="example-container" [hasBackdrop]="true" >
   
-  <mat-sidenav-content>
+    <mat-sidenav-content>
     
     <mat-drawer-container class="step-drawer">
       
-      <mat-drawer mode="side" opened="true">
+      <mat-drawer mode="side" *ngIf='drawerVisible' opened="true">
         <app-steps></app-steps>
       </mat-drawer>
       
       <mat-drawer-content>
+        
         <div class="content-one">
           <h1>Envisioning</h1>
           <p>This is where you will envision your plan.  A description of your Mission, Values, and Vision are required.</p>
         </div>
      
-    
         <app-text-edit [title]="'Mission'" [maxCharacters]="200"></app-text-edit>
         <app-text-edit [title]="'Values'" [maxCharacters]="150"></app-text-edit>
         <app-text-edit [title]="'Vision'" [maxCharacters]="100"></app-text-edit>
 
-        <app-priorities-grid></app-priorities-grid>
+        <app-priorities-grid [tableItems]="tableItems"
+                             (createPriority)="addPriority()" 
+                             (editPriorityEvent)="addPriority($event)"></app-priorities-grid>
+
+        <app-steps *ngIf='!drawerVisible'></app-steps>
+
+        <div class='copyright-info'>
+          <img id='footerImage' src="../assets/adv_grey.svg">
+          <div>&copy; 2018 AdvancED Inc. | <a>Contact Us</a>   |  <a>Privacy Notice</a></div>
+        </div>
 
       </mat-drawer-content>
     
@@ -41,7 +52,7 @@
 
   <mat-sidenav #formSidenav position="end" mode="push"
     [(opened)]="formSideNavOpened">
-     
+     <app-add-priority-sidebar *ngIf="priorityAddForm" (closeSidebar)="savePriority($event)" [priorityToEdit]='priorityToEdit'></app-add-priority-sidebar>
 
   </mat-sidenav> 
 

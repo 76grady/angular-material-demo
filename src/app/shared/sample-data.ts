@@ -21,11 +21,11 @@ export class SampleData {
 
     static tableItems(): TableItem[] {
         let tableItems: TableItem[] = [];
-        tableItems.push(new TableItem("Sun Tzu Priority", "This is the priority that sun tzu gave us.  He's an old fucker.  ", "#324D5C"));
-        tableItems.push(new TableItem("Clausewitz Priority", "This is the priority that the prussian general gave us.", "#46B29D"));
-        tableItems.push(new TableItem("Carl Jung Priority", "This is the priority that sun tzu gave us.  He's an old fucker.  ", "#F0CA4D"));
-        tableItems.push(new TableItem("Vern Troyer Priority", "This is the priority that sun tzu gave us.  He's an old fucker.  ", "#E37B40"));
-        tableItems.push(new TableItem("Eddie Van Halen Priority", "This is the priority that Eddie Van Halen gave us.  He's an old fucker.  ", "#DE5B49"));
+        tableItems.push(new TableItem("Sun Tzu Priority", "This is the priority that Sun Tzu gave us.  The Art of War was his main contribution.  ", "#324D5C"));
+        tableItems.push(new TableItem("Clausewitz Priority", "They say that amateurs read Sun Tzu, but professionals read Clausewitz.", "#46B29D"));
+        tableItems.push(new TableItem("Carl Jung Priority", "Carl Jung, an early psychoanalyst, was a contemperary of Sigmund Freud.  He coined the term 'Collective Unconscious'", "#F0CA4D"));
+        tableItems.push(new TableItem("Vern Troyer Priority", "Vern Troyer was most notable as Mini-Me in the Austin Powers movies.  He had great comedic timing.", "#E37B40"));
+        tableItems.push(new TableItem("Jimmy Page Priority", "I can't decide who the true GOAT is, Eddie Van Halen or Jimmy Page.", "#DE5B49"));
 
         return tableItems;
     }

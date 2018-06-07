@@ -8,7 +8,7 @@
   </button>  
 </div>
 <div class="table-container">
-  <table mat-table [dataSource]="tableItems" class="mat-elevation-z4">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
     
      <!-- Title Column -->
      <ng-container matColumnDef="color">
@@ -46,6 +46,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
 </div>  
 

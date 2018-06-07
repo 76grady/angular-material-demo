@@ -16,7 +16,7 @@
 
 .step-block > div {
     padding: 0 0 .5em 2em;
-    color: #555;
+    /* color: #555; */
 }
 
 .step-list > li > div {
@@ -26,7 +26,7 @@
 .substep-list > li {
     padding: .75em 3em .75em 2em;
     transition: background-color .5s;
-    color: #777;
+    /* color: #777; */
 }
 
 .substep-list > li > mat-icon {

@@ -17,7 +17,8 @@ import { MatButtonModule,
   MatTableModule,
   MatDialogModule,
   MatSlideToggleModule,
-  MatSnackBarModule } from '@angular/material';
+  MatSnackBarModule,
+  MatPaginatorModule } from '@angular/material';
 import { AddPrioirtyComponent } from './add-prioirty/add-prioirty.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TextEditComponent } from './text-edit/text-edit.component';
@@ -51,7 +52,8 @@ import { AddPrioritySidebarComponent } from './add-priority-sidebar/add-priority
     MatTableModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   entryComponents: [AddPrioirtyComponent],
   providers: [],

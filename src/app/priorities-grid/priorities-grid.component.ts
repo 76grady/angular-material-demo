@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener, EventEmitter, Output, Input } from '@angular/core';
 import { TableItem, SampleData } from '../shared/sample-data';
-import { MatDialog, MatTable, MatSlideToggle } from '@angular/material';
+import { MatDialog, MatTable, MatSlideToggle, MatPaginator, MatTableDataSource } from '@angular/material';
 import { AddPrioirtyComponent } from '../add-prioirty/add-prioirty.component';
 
 
@@ -13,9 +13,12 @@ export class PrioritiesGridComponent implements OnInit {
   @Input() tableItems: TableItem[]
 
   @ViewChild(MatTable) table: MatTable<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSlideToggle) modalSwitch: MatSlideToggle;
   @Output() createPriority: EventEmitter<null> = new EventEmitter<null>();
   @Output() editPriorityEvent: EventEmitter<TableItem> = new EventEmitter<TableItem>();
+
+  dataSource: any;
   
   innerWidth: number;
 
@@ -25,6 +28,10 @@ export class PrioritiesGridComponent implements OnInit {
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
+    console.log(this.tableItems);
+    this.dataSource = new MatTableDataSource<TableItem>(this.tableItems);
+    console.log(this.dataSource);
+    this.dataSource.paginator = this.paginator;
   }
 
   @HostListener('window:resize', ['$event'])

@@ -55,7 +55,7 @@ td.mat-cell {
 
 mat-card {
     margin: 0 0 2em 0;
-    border-left: 2em solid;
+    border-left: 1.25em solid;
 }
 
 .card-edit {

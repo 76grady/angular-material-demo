@@ -53,6 +53,21 @@ td.mat-cell {
     padding-right: .25em;
 }
 
+mat-card {
+    margin: 0 0 2em 0;
+    border-left: 1.25em solid;
+}
+
+.card-edit {
+
+}
+
+mat-button-toggle-group.mat-button-toggle-group {
+    position: relative;
+    bottom: .2em;
+    right: 3em;
+}
+
 @media screen and (max-width: 500px) {
     .mat-cell {
       font-size: .6em;

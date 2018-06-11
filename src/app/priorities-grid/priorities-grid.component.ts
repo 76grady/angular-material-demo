@@ -10,10 +10,10 @@ import { AddPrioirtyComponent } from '../add-prioirty/add-prioirty.component';
   styleUrls: ['./priorities-grid.component.css']
 })
 export class PrioritiesGridComponent implements OnInit {
-  @Input() tableItems: TableItem[]
+  @Input() tableItems: TableItem[];
 
   @ViewChild(MatTable) table: MatTable<any>;
-  
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSlideToggle) modalSwitch: MatSlideToggle;
   @ViewChild(MatButtonToggleGroup) group: MatButtonToggleGroup;
@@ -54,7 +54,7 @@ export class PrioritiesGridComponent implements OnInit {
     }
   }
 
-  insertPriority(item :TableItem) {
+  insertPriority(item: TableItem) {
     this.tableItems.push(item);
     this.table.renderRows();
   }
@@ -64,9 +64,9 @@ export class PrioritiesGridComponent implements OnInit {
   }
 
   private openModal() {
-    let dialogRef = this.dialog.open(AddPrioirtyComponent, {
+    const dialogRef = this.dialog.open(AddPrioirtyComponent, {
       width: '40em',
-      data: { }, 
+      data: { },
       hasBackdrop: true,
       autoFocus: false
     });

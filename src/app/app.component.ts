@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener, EventEmitter, Output } from '@angular/core';
-import { MatSidenav, MatSnackBar } from '@angular/material'
+import { MatSidenav, MatSnackBar } from '@angular/material';
 import { TableItem, SampleData } from './shared/sample-data';
 import { AddPrioritySidebarComponent } from './add-priority-sidebar/add-priority-sidebar.component';
 import { PrioritiesGridComponent } from './priorities-grid/priorities-grid.component';
@@ -15,11 +15,11 @@ export class AppComponent {
   tableItems: TableItem[] = SampleData.tableItems();
 
   sideNavOpened: boolean;
-  
+
   formSideNavOpened: boolean;
   priorityAddForm: boolean;
   priorityToEdit: TableItem;
-  
+
   drawerVisible: boolean = window.innerWidth > 750;
 
   @HostListener('window:resize', ['$event'])
@@ -28,7 +28,6 @@ export class AppComponent {
   }
 
   constructor(public snackBar: MatSnackBar) {
-    
   }
 
   menuClick(sideNav: MatSidenav): void {
@@ -36,11 +35,11 @@ export class AppComponent {
   }
 
   sideNavOpenEvent(): void {
-    console.log("Wire up a sidenav OPEN event.");
+    console.log('Wire up a sidenav OPEN event.');
   }
 
   sideNavClosedEvent(): void {
-    console.log("Wire up a sidenav CLOSED event.");
+    console.log('Wire up a sidenav CLOSED event.');
   }
 
   addPriority(item: TableItem) {
@@ -50,20 +49,16 @@ export class AppComponent {
     this.priorityToEdit = item;
   }
 
-  savePriority(value: [TableItem, boolean]){
+  savePriority(value: [TableItem, boolean]) {
     this.formSideNavOpened = false;
-    // if the form let us leave with a validated value, we need to save it. 
+    // if the form let us leave with a validated value, we need to save it.
     if (value[0] !== null) {
       this.tableItems.push(value[0]);
       this.prioritiesGridComponent.table.renderRows();
-      this.snackBar.open('Priority Added', "Do Something", {
+      this.snackBar.open('Priority Added', 'Do Something', {
         duration: 2000,
       });
     }
   }
- 
-    
+
 }
-
-
-

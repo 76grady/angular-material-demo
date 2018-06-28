@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener, EventEmitter, Output } from '@angular/core';
-import { MatSidenav, MatSnackBar } from '@angular/material';
+import { MatSidenav, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { TableItem, SampleData } from './shared/sample-data';
 import { AddPrioritySidebarComponent } from './add-priority-sidebar/add-priority-sidebar.component';
 import { PrioritiesGridComponent } from './priorities-grid/priorities-grid.component';
@@ -19,6 +19,8 @@ export class AppComponent {
   formSideNavOpened: boolean;
   priorityAddForm: boolean;
   priorityToEdit: TableItem;
+  snackBarXPosition: MatSnackBarHorizontalPosition = 'start';
+  snackBarYPosition: MatSnackBarVerticalPosition = 'top';
 
   drawerVisible: boolean = window.innerWidth > 750;
 
@@ -57,6 +59,8 @@ export class AppComponent {
       this.prioritiesGridComponent.table.renderRows();
       this.snackBar.open('Priority Added', 'Do Something', {
         duration: 2000,
+        horizontalPosition: this.snackBarXPosition,
+        verticalPosition: this.snackBarYPosition
       });
     }
   }
